@@ -22,16 +22,24 @@ var reverseVowels = function(s) {
         }
        
        if(i < j && set.has(arr[i]) && set.has(arr[j])){
-        var m =arr[i];
-        arr[i]=arr[j];
-        arr[j]=m;
+        [arr[i], arr[j]] = [arr[j], arr[i]];
         i++;
         j--;
        }
       
         
     }
-
+    // while (i < j) {
+    //     if (set.has(arr[i])) { // 左边是否有元音字母
+    //         if (set.has(arr[j])) { // 如果左边有元音字母，右边也有，那么交换
+    //             [arr[i], arr[j]] = [arr[j], arr[i]];
+    //             i++;
+    //         }
+    //         j--;
+    //     } else {
+    //         i++;
+    //     }
+    // }
     
     return arr.join("")
 };

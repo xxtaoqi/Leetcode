@@ -13,14 +13,24 @@
 var twoSum = function(numbers, target) {
     var lf = 1, rt = numbers.length ;
 
-    for (  ; lf < rt ; lf++ ){
-        for( ;  numbers[rt-1] + numbers[lf-1] >= target && lf < rt ; rt-- ){
-            if(numbers[rt-1] == target - numbers[lf-1] ){
-                return [lf,rt]
-            }
+    // for (  ; lf < rt ; lf++ ){
+    //     for( ;  numbers[rt-1] + numbers[lf-1] >= target && lf < rt ; rt-- ){
+    //         if(numbers[rt-1] == target - numbers[lf-1] ){
+    //             return [lf,rt]
+    //         }
 
-        }
+    //     }
         
+    // }
+    while (lf < rt) {
+        let sum = numbers[rt - 1] + numbers[lf - 1]
+        if (sum == target) {
+            return [lf, rt]
+        } else if (sum > target) {
+            rt--;
+        } else if (sum < target) {
+            lf++;
+        }
     }
 };
 // @lc code=end
